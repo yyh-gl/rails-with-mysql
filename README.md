@@ -4,7 +4,7 @@
 # 手順
 1. 「config/database.yml」にmysqlに関する情報を記載する
 
-```
+```yml
 default: &default
   adapter: mysql2
   encoding: utf8
@@ -28,19 +28,19 @@ production:
 
 2. mysqlサーバを起動する
 
-```
+```zsh
 $ mysql.server start
 ```
 
 3. 「config/database.yml」に応じてデータベース作成（database: <作りたいデータベース名>）
 
-```
+```zsh
 $ rails db:create
 ```
 
 4. Rails＋Scaffoldでモデル（テーブル）を作成
 
-```
+```zsh
 $ rails generate scaffold books title:string content:string
 $ rails db:migrate
 ```
