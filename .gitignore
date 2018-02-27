@@ -47,7 +47,3 @@ bower.json
 
 # Ignore node_modules
 node_modules/
-
-# Ignore information of database
-config/database.yml
-
