@@ -60,4 +60,4 @@ $ rails db:migrate
 # 学んだこと
 環境変数をうまく使おう
 - ENV
-- DBに接続するためのユーザ名やパスワード -> 「config/database.yml」，「config/secrets.yml」
+- DBに接続するためのユーザ名やパスワード -> 「config/database.yml」や「config/secrets.yml」
