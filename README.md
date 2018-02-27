@@ -55,3 +55,9 @@ $ rails db:migrate
 # 手順（Production環境）
 
 [参考サイト2](http://ruby-rails.hatenadiary.com/entry/20150314/1426332751)どおりにやればOK
+
+
+# 学んだこと
+環境変数をうまく使おう
+- ENV
+- DBに接続するためのユーザ名やパスワード -> 「config/database.yml」，「config/secrets.yml」
