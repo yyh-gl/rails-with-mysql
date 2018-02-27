@@ -1,24 +1,48 @@
-# README
+# 参考サイト
+[本記事](https://arrown-blog.com/rails-mysql/#scaffold)にお世話になりました
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 手順
+1. 「config/database.yml」にmysqlに関する情報を記載する
 
-Things you may want to cover:
+```
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: 
+  password: 
+  socket: /tmp/mysql.sock
 
-* Ruby version
+development:
+  <<: *default
+  database: mysql_development
 
-* System dependencies
+test:
+  <<: *default
+  database: mysql_test
 
-* Configuration
+production:
+  <<: *default
+  database: mysql_production
+```
 
-* Database creation
+2. mysqlサーバを起動する
 
-* Database initialization
+```
+$ mysql.server start
+```
 
-* How to run the test suite
+3. 「config/database.yml」に応じてデータベース作成（database: <作りたいデータベース名>）
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails db:create
+```
 
-* Deployment instructions
+4. Rails＋Scaffoldでモデル（テーブル）を作成
 
-* ...
+```
+$ rails generate scaffold books title:string content:string
+$ rails db:migrate
+```
+
+5. Railsサーバを起動して確認 -> 「http://localhost:3000/books」
